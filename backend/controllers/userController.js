@@ -107,7 +107,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 });
 
 export const addFriend = asyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).select("-password");;
  
 
     const {name} = req.body
