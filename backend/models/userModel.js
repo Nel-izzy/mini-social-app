@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-const friendSchema = new mongoose.Schema({name: String});
+
 
 const userSchema = mongoose.Schema(
   {

@@ -10,8 +10,8 @@ const Footer = () => {
         <Row>
           <Col className='text-center py-3'>
             {' '}
-            Copyright &copy; AppName {d} | Developed by{' '}
-            <a href='https://primemash.com'>Primemash</a>
+            Copyright &copy; SocialApp {d} | Developed by{' '} fictional Co.
+            
           </Col>
         </Row>
       </Container>

@@ -108,8 +108,7 @@ export const getUserProfile = asyncHandler(async (req, res) => {
 
 export const addFriend = asyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
-    console.log(user)
-    console.log(req.body);
+ 
 
     const {name} = req.body
     
@@ -134,6 +133,11 @@ export const updateUserProfile = asyncHandler(async (req, res) => {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.friends = req.body.friends || user.friends;
+
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
     
     const updatedUser = await user.save();
 
