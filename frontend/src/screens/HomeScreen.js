@@ -25,6 +25,7 @@ const HomeScreen = () => {
 
   const {user, loading: loadingUser} = useSelector((state) => state.userDetails);
   const {success} = useSelector((state) => state.addFriend);
+  const {success: successUpdate} = useSelector((state) => state.userProfileUpdate);
  
 
   const [message, setMessage] = useState(null);
@@ -35,7 +36,7 @@ const HomeScreen = () => {
       navigate("/login");
     }else{
       dispatch(listUsers());
-      if(!user.name || success){
+      if(!user.name || success || successUpdate){
         dispatch(userProfileUpdateReset());
         dispatch(addFriendReset());
         dispatch(getUserDetails('profile'));
@@ -48,7 +49,7 @@ const HomeScreen = () => {
 
    
  
-  }, [userInfo, navigate, dispatch, user, success]);
+  }, [userInfo, navigate, dispatch, user, success, successUpdate]);
 
   const addFriendHandler = (friend) => {
 
