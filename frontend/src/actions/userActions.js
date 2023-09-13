@@ -4,6 +4,7 @@ import {
   
   ADD_FRIEND_FAIL,
   ADD_FRIEND_REQUEST,
+  ADD_FRIEND_RESET,
   ADD_FRIEND_SUCCESS,
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,
@@ -243,6 +244,10 @@ export const logout = () => (dispatch) => {
 
 export const userProfileUpdateReset = () => (dispatch) => {
   dispatch({ type: USER_PROFILE_UPDATE_RESET });
+};
+
+export const addFriendReset = () => (dispatch) => {
+  dispatch({ type: ADD_FRIEND_RESET });
 };
 
 export const addFriend =

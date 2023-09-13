@@ -7,7 +7,7 @@ import { Row, Col, ListGroup, Card, ListGroupItem, Button,
   FormControl,
    } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addFriend, getUserDetails, listUsers,   updateUserProfile, userProfileUpdateReset} from "../actions/userActions";
+import { addFriend, addFriendReset, getUserDetails, listUsers,   updateUserProfile, userProfileUpdateReset} from "../actions/userActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 
@@ -35,8 +35,9 @@ const HomeScreen = () => {
       navigate("/login");
     }else{
       dispatch(listUsers());
-      if(!user.name){
+      if(!user.name || success){
         dispatch(userProfileUpdateReset());
+        dispatch(addFriendReset());
         dispatch(getUserDetails('profile'));
         
       }else {
@@ -68,6 +69,7 @@ const HomeScreen = () => {
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
     }
+    
   };
 
 
